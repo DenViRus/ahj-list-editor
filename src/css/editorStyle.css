@@ -1,0 +1,276 @@
+.editor-box {
+  max-width: 1200px;
+  max-height: 800px;
+  min-width: 600px;
+  width: 90%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: violet;
+  padding: 10px;
+  border: 7px solid black;
+  border-radius: 10px;
+  position: relative;
+}
+
+.editor-heading-box {
+  display: flex;
+  padding: 5px;
+  background-color: lightgray;
+  border: 5px solid black;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.editor-heading {
+  text-transform: uppercase;
+  line-height: 60px;
+  margin: 0 auto 0 20px;
+}
+
+.editor-adding {
+  width: 60px;
+  height: 60px;
+  margin: 0 20px 0 auto;
+}
+
+.adding-image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 3px solid lightgray;
+  border-radius: 50%;
+}
+
+.adding-image:hover {
+  border: none;
+  background-color: green;
+}
+
+.editor-table-box {
+  background-color: lightgray;
+  padding: 5px;
+  border: 5px solid black;
+  border-radius: 10px;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.editor-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 5px solid black;
+}
+
+.heading-cell {
+  text-transform: uppercase;
+  border: 5px solid black;
+  padding: 5px;
+}
+
+.heading-cell-name {
+  min-width: 200px;
+}
+
+.heading-cell-price {
+  min-width: 100px;
+}
+
+.heading-cell-actions {
+  min-width: 200px;
+}
+
+.empty-cell {
+  text-transform: uppercase;
+  color: red;
+  text-align: center;
+  padding: 5px;
+}
+
+.data-cell {
+  border: 3px solid black;
+  padding: 1px 5px;
+}
+
+.data-cell-name {
+  min-width: 200px;
+}
+
+.data-cell-price {
+  min-width: 100px;
+  text-align: center;
+}
+
+.data-cell-actions {
+  min-width: 200px;
+}
+
+.data-aciton-box {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.data-apdate {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+.data-delete {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+.data-image {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 3px solid lightgray;
+  border-radius: 50%;
+}
+
+.data-apdate-image:hover {
+  border: none;
+  background-color: green;
+}
+
+.data-delete-image:hover {
+  border: none;
+  background-color: red;
+}
+
+.editor-modal-wraper {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.editor-modal {
+  min-width: 300px;
+  width: 80%;
+  background-color: violet;
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.modal-box {
+  padding: 5px;
+  background-color: lightgray;
+  border: 5px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.modal-label {
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.modal-input {
+  padding: 10px;
+  font-size: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.modal-span {
+  min-width: 300px;
+  max-width: 500px;
+  width: 50%;
+  border: 3px solid red;
+  color: red;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 20%;
+}
+
+.modal-span::before {
+  content: "";
+  top: -40px;
+  left: calc(50% - 20px);
+  border: 20px solid transparent;
+  border-bottom: 20px solid red;
+  position: absolute;
+}
+
+.modal-span::after {
+  content: "";
+  top: -36px;
+  left: calc(50% - 20px);
+  border: 20px solid transparent;
+  border-bottom: 20px solid white;
+  position: absolute;
+}
+
+.modal-text {
+  text-align: center;
+  color: red;
+}
+
+.modal-button {
+  min-width: 100px;
+  width: 20%;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
+  margin-right: 20px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.modal-button-box {
+  text-align: right;
+}
+
+.modal-button-save:hover {
+  color: white;
+  background-color: green;
+  border: 3px solid white;
+}
+
+.modal-button-cancel:hover {
+  color: white;
+  background-color: blue;
+  border: 3px solid white;
+}
+
+.delete-modal-button-delete:hover {
+  color: white;
+  background-color: red;
+  border: 3px solid white;
+}
+
+.delete-modal-button-cancel:hover {
+  color: white;
+  background-color: blue;
+  border: 3px solid white;
+}
+
+.hidden {
+  display: none;
+}
+
+.valid {
+  color: green;
+  border-color: green;
+}
+
+.noValid {
+  color: red;
+  border-color: red;
+}
