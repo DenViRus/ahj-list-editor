@@ -1,4 +1,4 @@
-# List Editor
+# List Editor  [![Build status](https://ci.appveyor.com/api/projects/status/jo5rlb2ihvb1jr6a?svg=true)](https://ci.appveyor.com/project/DenViRus/ahj-list-editor)  
 
 #### Легенда
 
