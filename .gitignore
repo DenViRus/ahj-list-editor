@@ -6,6 +6,7 @@ doc
 Thumbs.db*
 .DS_Store*
 HELP.md
+.vscode
 
 
 # Logs

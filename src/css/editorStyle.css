@@ -183,6 +183,15 @@
   border-radius: 10px;
 }
 
+.modal-price-input {
+  -moz-appearance: textfield;
+}
+
+.modal-price-input::-webkit-outer-spin-button,
+.modal-price-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .modal-span {
   min-width: 300px;
   max-width: 500px;

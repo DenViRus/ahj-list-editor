@@ -133,7 +133,6 @@ export default class Editor {
     this.modalPriceInput.setAttribute('type', 'number');
     this.modalPriceInput.setAttribute('autocomplete', 'off');
     this.modalPriceInput.setAttribute('placeholder', 'enter product price');
-    this.modalPriceInput.setAttribute('min', '1');
 
     this.modalPriceSpan = document.createElement('span');
     this.modalPriceSpan.className = 'modal-span modal-price-span hidden';

@@ -1,3 +1,5 @@
+import Product from './Product.js';
+
 export default class EditorController {
   constructor(container) {
     this.container = container;
@@ -6,6 +8,9 @@ export default class EditorController {
     this.dataRow = null;
     this.dataRowName = null;
     this.dataRowPrice = null;
+    this.product = null;
+    this.index = null;
+    this.productsArr = [];
   }
 
   getEditorData() {
@@ -34,7 +39,7 @@ export default class EditorController {
 
   checkDataRows() {
     this.dataRows = this.editorTable.querySelectorAll('.data-row');
-    if (this.dataRows.length <= 0) {
+    if (this.dataRows.length === 0) {
       this.editorTable.append(this.emptyRow);
       this.emptyRow.classList.remove('hidden');
     } else {
@@ -122,7 +127,10 @@ export default class EditorController {
       this.dataRowPrice = this.dataRow.querySelector('.data-cell-price');
       this.dataRowName.textContent = this.enterModalNameInput.value.trim();
       this.dataRowPrice.textContent = parseFloat(this.enterModalPriceInput.value).toFixed(2);
+      this.product = new Product(this.dataRowName.textContent, this.dataRowPrice.textContent);
       this.editorTable.append(this.dataRow);
+      this.productsArr.push(this.product);
+
       this.closeEnterModal();
       this.checkDataRows();
     }
@@ -132,6 +140,8 @@ export default class EditorController {
     if (this.validateForm()) {
       this.dataRowName.textContent = this.enterModalNameInput.value.trim();
       this.dataRowPrice.textContent = parseFloat(this.enterModalPriceInput.value).toFixed(2);
+      this.product.name = this.dataRowName.textContent;
+      this.product.price = parseFloat(this.dataRowPrice.textContent);
       this.closeEnterModal();
     }
   }
@@ -165,6 +175,8 @@ export default class EditorController {
         this.dataRow = this.aim.closest('.data-row');
         this.dataRowName = this.dataRow.querySelector('.data-cell-name');
         this.dataRowPrice = this.dataRow.querySelector('.data-cell-price');
+        this.index = this.productsArr.findIndex((product) => product.name === this.dataRowName.textContent && product.price === parseFloat(this.dataRowPrice.textContent));
+        this.product = this.productsArr[this.index];
         this.enterModalNameInput.value = this.dataRowName.textContent;
         this.enterModalNameInput.focus();
         this.enterModalPriceInput.value = this.dataRowPrice.textContent;
@@ -179,11 +191,15 @@ export default class EditorController {
         event.preventDefault();
         this.deleteModalWraper.classList.remove('hidden');
         this.dataRow = this.aim.closest('.data-row');
+        this.dataRowName = this.dataRow.querySelector('.data-cell-name');
+        this.dataRowPrice = this.dataRow.querySelector('.data-cell-price');
+        this.index = this.productsArr.findIndex((product) => product.name === this.dataRowName.textContent && product.price === parseFloat(this.dataRowPrice.textContent));
       }
 
       if (this.aim.classList.contains('delete-modal-button-delete')) {
         event.preventDefault();
         this.dataRow.remove();
+        this.productsArr.splice(this.index, 1);
         this.checkDataRows();
         this.deleteModalWraper.classList.add('hidden');
       }
@@ -199,21 +215,23 @@ export default class EditorController {
       if (this.aim.classList.contains('modal-name-input')) {
         event.preventDefault();
         this.removeNameValidation();
-        setTimeout(() => {
-          this.validateNameInput();
-        }, 1000);
       }
 
       if (this.aim.classList.contains('modal-price-input')) {
         event.preventDefault();
         this.removePriceValidation();
-        setTimeout(() => {
-          this.validatePriceInput();
-        }, 1000);
+      }
+    };
+
+    const editorController3 = (event) => {
+      this.aim = event.target;
+      if (event.key === 'Enter') {
+        event.preventDefault();
       }
     };
 
     this.editorBox.addEventListener('click', editorController1);
     this.editorBox.addEventListener('keyup', editorController2);
+    this.editorBox.addEventListener('keydown', editorController3);
   }
 }
